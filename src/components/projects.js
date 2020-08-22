@@ -25,13 +25,13 @@ const Projects = () => {
     <Project key={project.id} title={project.title} tags={project.tags} />
   ))
   return (
-    <section className="project-area">
+    <section className="projects-section">
       <div className="container">
-        <div className="pb-5">
-          <h1 className="text-uppercase">List of Projects</h1>
+        <div className="projects-title pb-5">
+          <h1 className="text-uppercase title-h1">List of Projects</h1>
         </div>
         <div className="button-group">{filterList}</div>
-        <div className="row">{projectList}</div>
+        <div className="row grid">{projectList}</div>
       </div>
     </section>
   )
