@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useStaticQuery, graphql } from "gatsby"
 
 import { DATA } from "../constants/data"
 import { createFilterMap } from "../constants/functions"
@@ -9,7 +10,30 @@ import Project from "../components/project"
 const Projects = () => {
   const [filter, setFilter] = useState("all")
 
-  const FILTER_MAP = createFilterMap(DATA)
+  const data = useStaticQuery(graphql`
+    {
+      categories: allStrapiCategory {
+        nodes {
+          name
+        }
+      }
+      projects: allStrapiProject {
+        nodes {
+          strapiId
+          title
+          category {
+            id
+            name
+          }
+        }
+      }
+    }
+  `)
+
+  const CATEGORIES = data.categories.nodes
+  const PROJECTS = data.projects.nodes
+
+  const FILTER_MAP = createFilterMap(CATEGORIES, PROJECTS)
   const FILTER_NAMES = Object.keys(FILTER_MAP)
 
   const filterList = FILTER_NAMES.map(name => (
@@ -21,9 +45,16 @@ const Projects = () => {
     />
   ))
 
-  const projectList = DATA.filter(FILTER_MAP[filter]).map(project => (
-    <Project key={project.id} title={project.title} tags={project.tags} />
+  const projectList = PROJECTS.filter(FILTER_MAP[filter]).map(project => (
+    <Project
+      key={project.strapiId}
+      title={project.title}
+      // tags={project.tag}
+    />
   ))
+  console.log("filter: ", filter)
+  console.log(FILTER_MAP)
+  console.log(projectList)
   return (
     <section className="projects-section">
       <div className="container">

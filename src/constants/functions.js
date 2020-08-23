@@ -1,18 +1,16 @@
-export const createFilterMap = data => {
-  let tagsList = []
+export const createFilterMap = (categories, projects) => {
+  const categoriesList = categories.map(category => category.name)
   let filterMap = {
     all: () => true,
   }
 
-  data.forEach(project => {
-    tagsList.push(...project.tags)
-  })
-  tagsList = [...new Set(tagsList)]
-
-  data.forEach(project => {
-    tagsList.forEach(item => {
-      filterMap[item] = project => project.tags.includes(item)
-    })
+  projects.forEach(project => {
+    categoriesList.forEach(
+      filter =>
+        (filterMap[filter] = function (project) {
+          return project.category.name === filter
+        })
+    )
   })
 
   return filterMap
