@@ -7,11 +7,11 @@ const Project = ({ id, title, tags }) => {
         <div className="project-img">img</div>
         <div className="project-title py-4">
           <h4 className="text-uppercase">{title}</h4>
-          {/* {tags.map((tag, index) => (
-            <span key={index} className="text-secondary">
-              {tag}
+          {tags.map(tag => (
+            <span key={tag.id} className="text-secondary">
+              {tag.name}
             </span>
-          ))} */}
+          ))}
         </div>
       </div>
     </div>
