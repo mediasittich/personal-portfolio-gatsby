@@ -13,6 +13,7 @@ const Projects = () => {
     {
       categories: allStrapiCategory {
         nodes {
+          strapiId
           name
         }
       }
@@ -23,6 +24,17 @@ const Projects = () => {
           category {
             id
             name
+          }
+          description
+          github
+          url
+          createdAt(formatString: "DD MM YYYY")
+          screenshot {
+            childImageSharp {
+              fluid(maxWidth: 400, quality: 80) {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
           tag {
             id
@@ -49,7 +61,15 @@ const Projects = () => {
   ))
 
   const projectList = PROJECTS.filter(FILTER_MAP[filter]).map(project => (
-    <Project key={project.strapiId} title={project.title} tags={project.tag} />
+    <Project
+      key={project.strapiId}
+      title={project.title}
+      description={project.description}
+      github={project.github}
+      url={project.url}
+      tags={project.tag}
+      screenshot={project.screenshot.childImageSharp.fluid}
+    />
   ))
 
   return (
