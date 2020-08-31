@@ -3,8 +3,8 @@ import Img from "gatsby-image"
 
 const Project = ({ title, description, github, url, tags, screenshot }) => {
   return (
-    <div className="col-sm-12 col-md-6 col-lg-4">
-      <div className="project">
+    <article className="project card">
+      <div className="project-card">
         <div className="project-img">
           <span>
             <Img fluid={screenshot} />
@@ -19,7 +19,7 @@ const Project = ({ title, description, github, url, tags, screenshot }) => {
           ))}
         </div>
       </div>
-    </div>
+    </article>
   )
 }
 

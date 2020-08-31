@@ -1,0 +1,74 @@
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -15px; /* gutter size offset */
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 15px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column > div {
+  /* change div to reference your elements you put in <Masonry> */
+  background: white;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 576px) {
+  .my-masonry-grid {
+    margin-left: -30px;
+  }
+  .my-masonry-grid_column {
+    padding-left: 30px;
+  }
+  .my-masonry-grid_column > .card {
+    margin-bottom: 30px;
+  }
+}
+@media (min-width: 768px) {
+  .card-columns {
+    column-count: 3;
+  }
+}
+@media (min-width: 992px) {
+  .card-columns {
+    column-count: 4;
+  }
+}
+@media (min-width: 1200px) {
+  .card-columns {
+    column-count: 4;
+  }
+}
+
+/* End react-masonry-css */
+
+.projects-section {
+  padding: 4rem 0;
+}
+.projects-section .button-group {
+  /* text-align: center; */
+}
+.projects-section .button-group button {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  font-weight: 300;
+  /* text-transform: uppercase; */
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.25rem;
+  border-radius: 2rem;
+  min-width: 50px;
+  line-height: normal;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+.projects-section .button-group button:hover,
+.projects-section .button-group button:active,
+.projects-section .button-group button.active {
+  background-color: #49b293;
+  color: white;
+}
