@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Masonry from "react-masonry-css"
-import FlipMove from "react-flip-move"
 
 import { createFilterMap } from "../constants/functions"
 
