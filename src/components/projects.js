@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Masonry from "react-masonry-css"
+import styled from "styled-components"
 
 import { createFilterMap } from "../constants/functions"
 
@@ -88,7 +89,7 @@ const Projects = () => {
     <section className="projects-section">
       <div className="container">
         <div className="projects-title pb-5">
-          <h1 className="text-uppercase title-h1">List of Projects</h1>
+          <SectionTitle>Latest Projects</SectionTitle>
         </div>
 
         <div className="button-group mb-5">{filterList}</div>
@@ -104,5 +105,24 @@ const Projects = () => {
     </section>
   )
 }
+
+const SectionTitle = styled.h1`
+  color: ${props => props.theme.colors.grayDark};
+  font-family: ${props => props.theme.fonts.main};
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.17em;
+  position: relative;
+  margin-bottom: 30px;
+
+  &::after {
+    content: "";
+    width: 68px;
+    height: 1px;
+    display: block;
+    margin-top: 8px;
+    background-color: ${props => props.theme.colors.grayDark};
+  }
+`
 
 export default Projects
