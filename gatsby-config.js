@@ -47,11 +47,30 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `assets`,
+        path: `${__dirname}/src/images/`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /images/, // See below to configure properly
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
           {
-            family: `Roboto`,
+            family: `Fira Sans`,
+            variants: [`400`, `500`, `700`],
+          },
+          {
+            family: `Poppins`,
             variants: [`400`, `500`],
           },
         ],
