@@ -8,7 +8,7 @@ import { createFilterMap } from "../constants/functions"
 import FilterButton from "../components/filterButton"
 import Project from "../components/project"
 
-import "../styles/projects.css"
+// import "../styles/projects.css"
 
 const Projects = () => {
   const [filter, setFilter] = useState("all")
@@ -79,14 +79,14 @@ const Projects = () => {
 
   // Masonry layout
   const breakpointColumnsObj = {
-    default: 4,
-    992: 3,
+    default: 3,
+    992: 2,
     768: 2,
     576: 1,
   }
 
   return (
-    <section className="projects-section">
+    <Wrapper>
       <div className="container">
         <div className="projects-title pb-5">
           <SectionTitle>Latest Projects</SectionTitle>
@@ -94,17 +94,32 @@ const Projects = () => {
 
         <div className="button-group mb-5">{filterList}</div>
 
-        <Masonry
+        <StyledMasonry
           breakpointCols={breakpointColumnsObj}
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"
         >
           {projectList}
-        </Masonry>
+        </StyledMasonry>
       </div>
-    </section>
+    </Wrapper>
   )
 }
+
+const Wrapper = styled.section`
+  padding: 4rem 0;
+`
+
+const StyledMasonry = styled(Masonry)`
+  display: flex;
+  margin-left: -15px;
+  width: auto;
+
+  & > .my-masonry-grid_column {
+    padding-left: 15px; /* gutter size */
+    background-clip: padding-box;
+  }
+`
 
 const SectionTitle = styled.h1`
   color: ${props => props.theme.colors.grayDark};
