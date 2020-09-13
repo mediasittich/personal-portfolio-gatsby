@@ -30,7 +30,7 @@ const StyledButton = styled.button`
   &:hover,
   &:active,
   &.active {
-    background-color: #49b293;
+    background-color: ${props => props.theme.colors.secondary};
     color: white;
   }
 `
