@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import HeroSection from "../components/hero"
 import ProjectsList from "../components/projects"
 import Footer from "../components/footer"
+import ScrollToTopBtn from "../components/scrollToTopBtn"
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <HeroSection />
       <ProjectsList />
       <Footer />
+      <ScrollToTopBtn />
     </Layout>
   )
 }
