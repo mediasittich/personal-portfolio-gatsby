@@ -14,13 +14,6 @@ export default {
     grayBtnLg: "#f3f3f3",
     white: "#ffffff",
   },
-  breakpoints: {
-    xs: "",
-    sm: "(min-width: 576px)",
-    md: "(min-width: 768px)",
-    lg: "(min-width: 992px)",
-    xl: "(min-width: 1200px)",
-  },
   spacings: {
     xxSmall: ".25rem",
     xSmall: ".5rem",

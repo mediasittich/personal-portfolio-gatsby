@@ -2,13 +2,12 @@ import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Masonry from "react-masonry-css"
 import styled from "styled-components"
+import { breakpoints } from "../themes/mediaQueries"
 
 import { createFilterMap } from "../constants/functions"
 
 import FilterButton from "../components/filterButton"
 import Project from "../components/project"
-
-// import "../styles/projects.css"
 
 const Projects = () => {
   const [filter, setFilter] = useState("all")
@@ -29,6 +28,7 @@ const Projects = () => {
             id
             name
           }
+          summary
           description
           github
           url
@@ -69,6 +69,7 @@ const Projects = () => {
     <Project
       key={project.strapiId}
       title={project.title}
+      summary={project.summary}
       description={project.description}
       github={project.github}
       url={project.url}
@@ -77,9 +78,11 @@ const Projects = () => {
     />
   ))
 
+  console.log(breakpoints.md)
   // Masonry layout
   const breakpointColumnsObj = {
     default: 3,
+    1200: 3,
     992: 2,
     768: 2,
     576: 1,
@@ -112,11 +115,11 @@ const Wrapper = styled.section`
 
 const StyledMasonry = styled(Masonry)`
   display: flex;
-  margin-left: -15px;
+  margin-left: -20px;
   width: auto;
 
   & > .my-masonry-grid_column {
-    padding-left: 15px; /* gutter size */
+    padding-left: 20px; /* gutter size */
     background-clip: padding-box;
   }
 `
